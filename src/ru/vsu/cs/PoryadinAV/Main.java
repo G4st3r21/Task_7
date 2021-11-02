@@ -30,7 +30,7 @@ public class Main {
                 testTaskResults.acceptTestedArrays(i, 0);
             }
 
-            writeAnswer(test[0], test[1]);
+            writeAnswer(testArrays[i], test[0], test[1]);
         }
     }
 
@@ -52,11 +52,12 @@ public class Main {
         if (allTestsIsDone) {
             int[] array = ArrayUtils.readIntArrayFromConsole("array");
             int[] answer = testTask.checkSubSequence(array);
-            writeAnswer(answer[0], answer[1]);
+            writeAnswer(array, answer[0], answer[1]);
         }
     }
 
-    private static void writeAnswer(int posOfFirstTerm, int length) {
+    private static void writeAnswer(int[] array, int posOfFirstTerm, int length) {
+        System.out.println("Tested array: " + Arrays.toString(array));
         System.out.println("Position of first term: " + posOfFirstTerm);
         System.out.println("Length of symmetrical subsequence: " + length + "\n");
     }
