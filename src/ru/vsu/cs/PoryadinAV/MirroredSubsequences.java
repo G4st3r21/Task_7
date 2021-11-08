@@ -2,7 +2,7 @@ package ru.vsu.cs.PoryadinAV;
 
 import java.util.Arrays;
 
-public class Task_7 {
+public class MirroredSubsequences {
 
     public int[] checkSubSequence(int[] array) {
         int maxLength = 0;

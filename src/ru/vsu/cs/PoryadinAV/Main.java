@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        Task_7 testTask = new Task_7();
+        MirroredSubsequences testTask = new MirroredSubsequences();
         TestCase testTaskCases = new TestCase();
         TestResult testTaskResults = new TestResult();
 
@@ -16,7 +16,7 @@ public class Main {
         checkProgram(testTask, allTestsIsDone);
     }
 
-    private static void testingCases(Task_7 testTask, TestCase testTaskCases, TestResult testTaskResults) {
+    private static void testingCases(MirroredSubsequences testTask, TestCase testTaskCases, TestResult testTaskResults) {
         int[][] testArrays = testTaskCases.passTestArrays();
         int[][] testAnswers = testTaskCases.passTestAnswers();
 
@@ -48,7 +48,7 @@ public class Main {
         return allTestsIsDone;
     }
 
-    private static void checkProgram(Task_7 testTask, boolean allTestsIsDone) {
+    private static void checkProgram(MirroredSubsequences testTask, boolean allTestsIsDone) {
         if (allTestsIsDone) {
             int[] array = ArrayUtils.readIntArrayFromConsole("array");
             int[] answer = testTask.checkSubSequence(array);
