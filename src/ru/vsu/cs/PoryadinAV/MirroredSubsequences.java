@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class MirroredSubsequences {
 
-    public int[] checkSubSequence(int[] array) {
+    public int[] findSubSequence(int[] array) {
         int maxLength = 0;
         int posOfFirstTerm = 0;
         int[] answer = new int[2];

@@ -21,7 +21,7 @@ public class Main {
         int[][] testAnswers = testTaskCases.passTestAnswers();
 
         for (int i = 0; i < 10; i++) {
-            int[] test = testTask.checkSubSequence(testArrays[i]);
+            int[] test = testTask.findSubSequence(testArrays[i]);
             int[] answer = testAnswers[i];
 
             if (Arrays.equals(test, answer)) {
@@ -51,7 +51,7 @@ public class Main {
     private static void checkProgram(MirroredSubsequences testTask, boolean allTestsIsDone) {
         if (allTestsIsDone) {
             int[] array = ArrayUtils.readIntArrayFromConsole("array");
-            int[] answer = testTask.checkSubSequence(array);
+            int[] answer = testTask.findSubSequence(array);
             writeAnswer(array, answer[0], answer[1]);
         }
     }
