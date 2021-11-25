@@ -10,7 +10,7 @@ public class MirroredSubsequences {
         int[] answer = new int[2];
 
         for (int i = 0; i < array.length; i++) {
-            for (int j = i + 1; j < array.length - i; j++) {
+            for (int j = i + 1; j < array.length; j++) {
                 int[] subSequence = takeSubSequenceFromArray(i, j, array);
                 if (checkSymmetricalSubSequence(subSequence) && subSequence.length > maxLength) {
                     maxLength = subSequence.length;

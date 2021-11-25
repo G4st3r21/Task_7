@@ -1,14 +1,19 @@
 package ru.vsu.cs.PoryadinAV;
 
 public class TestResult {
-    int[][] testedArrays = new int[10][2];
+    private final boolean isCorrect;
+    private final TestCase testCase;
 
-    public void acceptTestedArrays(int taskNumber, int trueOrFalse) {
-        testedArrays[taskNumber][0] = taskNumber;
-        testedArrays[taskNumber][1] = trueOrFalse;
+    public TestResult(boolean isCorrect, TestCase testCase) {
+        this.isCorrect = isCorrect;
+        this.testCase = testCase;
     }
 
-    public int checkTestedArrays(int testNumber) {
-        return testedArrays[testNumber][1];
+    public boolean getIsCorrect() {
+        return isCorrect;
+    }
+
+    public TestCase getTestCaseNumber() {
+        return testCase;
     }
 }

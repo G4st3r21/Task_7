@@ -5,55 +5,30 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        MirroredSubsequences testTask = new MirroredSubsequences();
-        TestCase testTaskCases = new TestCase();
-        TestResult testTaskResults = new TestResult();
+        MirroredSubsequences programLogic = new MirroredSubsequences();
+        TestMirroredSubsequences testing = new TestMirroredSubsequences();
+        TestResult[] testTaskResults = testing.testingCases(programLogic);
 
-        testingCases(testTask, testTaskCases, testTaskResults);
+        if (checkTestedCases(testTaskResults)) {
+            int[] array = ArrayUtils.readIntArrayFromConsole("array");
+            int[] answer = programLogic.findSubSequence(array);
 
-        boolean allTestsIsDone = checkTestedCases(testTaskResults);
-
-        checkProgram(testTask, allTestsIsDone);
-    }
-
-    private static void testingCases(MirroredSubsequences testTask, TestCase testTaskCases, TestResult testTaskResults) {
-        int[][] testArrays = testTaskCases.passTestArrays();
-        int[][] testAnswers = testTaskCases.passTestAnswers();
-
-        for (int i = 0; i < 10; i++) {
-            int[] test = testTask.findSubSequence(testArrays[i]);
-            int[] answer = testAnswers[i];
-
-            if (Arrays.equals(test, answer)) {
-                testTaskResults.acceptTestedArrays(i, 1);
-            } else {
-                testTaskResults.acceptTestedArrays(i, 0);
-            }
-
-            writeAnswer(testArrays[i], test[0], test[1]);
+            writeAnswer(array, answer[0], answer[1]);
         }
     }
 
-    private static boolean checkTestedCases(TestResult testTaskResults) {
+    private static boolean checkTestedCases(TestResult[] testTaskResults) {
         boolean allTestsIsDone = true;
 
         for (int i = 0; i < 10; i++) {
-            if (testTaskResults.checkTestedArrays(i) == 0) {
-                writeError(i + 1);
+            if (!testTaskResults[i].getIsCorrect()) {
+                writeError(i+1);
                 allTestsIsDone = false;
                 break;
             }
         }
 
         return allTestsIsDone;
-    }
-
-    private static void checkProgram(MirroredSubsequences testTask, boolean allTestsIsDone) {
-        if (allTestsIsDone) {
-            int[] array = ArrayUtils.readIntArrayFromConsole("array");
-            int[] answer = testTask.findSubSequence(array);
-            writeAnswer(array, answer[0], answer[1]);
-        }
     }
 
     private static void writeAnswer(int[] array, int posOfFirstTerm, int length) {
